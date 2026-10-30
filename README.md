@@ -1,16 +1,20 @@
-# Pratumnak Hill condo shortlist
-
-A live-updating shortlist of rental condos on Pratumnak Hill, Pattaya — filtered to the
-brief (≤ ฿16,000/mo · 25 m²+ · 6-month-friendly · condos only) and sorted by the space
-each baht buys (฿/m²), benchmarked against the owner's current 64 m² at ฿14,000.
+# Pratumnak Soi 4-6 condo shortlist
 
 **Live page:** https://formidableaura.github.io/pratumnak-condos/
 
-Sources: Facebook Marketplace (anonymous, no account), Rightmove Pattaya, and Alan Bolton
-Property Consultants. Photos belong to their listings. Prices are asking rents.
+Brief: rental condos at/between Pratumnak Soi 4 and Soi 6, Pattaya — long-term asks
+≤ ฿16,000/mo, price-sorted and soi-labeled. Hunted 30 Oct 2026 across Alan Bolton
+Property Consultants (pattaya-property.net), East Coast Real Estate (thaiproperty.com)
+and listing portals (Hipflat, FazWaz, RenThai, BahtSold, PropertyHub, inpattaya.net).
+Every card carries its source link, freshness stamps, and ⚠ caveats for undated/older
+listings.
 
-- `index.html` + `images/` — the page (plain HTML/CSS/JS, no build step)
-- `listings.json` — the dataset; `parse_all.py` regenerates it from raw harvests
-- `refresh.py` — live refresh from Rightmove over plain HTTP (cron)
-- `deploy.sh` — pushes the current build to Pages
-- `requirements/see requirements.md` — the brief as it grew
+- `index.html` — the live page (plain HTML/CSS, no build step)
+- branch `backup-live` — the previous richer snapshot (13:58 harvest: Rightmove/ABPC/
+  Facebook Marketplace photos, m²-sorted layout) — restorable with
+  `git checkout backup-live -- .`
+
+Refresh procedure: re-harvest, replace `index.html`, push to `main`; keep a backup
+branch before overwriting anything. Facebook Marketplace was IP-gated for anonymous
+browsing on the evening of 30 Oct — resume it next session (marketplace-harvesting
+pacing rules), don't hammer.
